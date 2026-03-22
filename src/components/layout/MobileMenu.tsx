@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
-import { ThemeToggle } from '../ui/ThemeToggle';
 import { cn } from '../../utils/cn';
 
 interface MobileMenuProps {
@@ -19,7 +18,6 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
     navLinks,
     activeSection,
     onLinkClick,
-    isDark
 }) => {
     return (
         <AnimatePresence>
@@ -45,7 +43,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
                     >
                         <div className="flex flex-col h-full">
                             {/* Menu Header */}
-                            <div className="flex items-center justify-between p-5 border-b border-gray-200 dark:border-gray-700">
+                            <div className="flex items-center justify-between p-5">
                                 <motion.span
                                     className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
                                     initial={{ opacity: 0, x: -20 }}
@@ -86,16 +84,6 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
                                     </motion.a>
                                 ))}
                             </nav>
-
-                            {/* Theme Toggle Mobile */}
-                            <div className="p-5 border-t border-gray-200 dark:border-gray-700">
-                                <div className="flex items-center justify-between gap-4">
-                                    <span className="text-sm text-gray-600 dark:text-gray-400">
-                                        Thème actuel: {isDark ? 'Sombre' : 'Clair'}
-                                    </span>
-                                    <ThemeToggle variant="glowing" />
-                                </div>
-                            </div>
                         </div>
                     </motion.div>
                 </>
