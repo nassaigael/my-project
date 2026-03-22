@@ -9,8 +9,8 @@ function App() {
     <Layout transparentHeader={true}>
       <Hero />
       <About />
-      <Skills />
       <Projects />
+      <Skills />
     </Layout>
   );
 }

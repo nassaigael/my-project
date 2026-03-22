@@ -1,146 +1,269 @@
 import React, { useState } from 'react';
-import { Send, Mail, Phone, MapPin } from 'lucide-react';
-import { AnimatedSection } from '../ui/NeumorphButton';
-import { personalInfo } from '../../data';
+import { motion } from 'framer-motion';
+import { Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { cn } from '../../utils/cn';
+import { contactInfo, socialLinks, contactForm, contactMessages } from '../../data/contact';
 
 export const Contact: React.FC = () => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
+        subject: '',
         message: ''
     });
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        console.log('Form submitted:', formData);
-        alert('Message envoyé ! Je vous répondrai dans les plus brefs délais.');
-        setFormData({ name: '', email: '', message: '' });
-    };
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFormData({
             ...formData,
-            [e.target.id]: e.target.value
+            [e.target.name]: e.target.value
         });
     };
 
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        setSubmitStatus('idle');
+
+        // Simulation d'envoi (remplacer par votre API)
+        try {
+            await new Promise(resolve => setTimeout(resolve, 1500));
+            setSubmitStatus('success');
+            setFormData({ name: '', email: '', subject: '', message: '' });
+            setTimeout(() => setSubmitStatus('idle'), 3000);
+        } catch {
+            setSubmitStatus('error');
+            setTimeout(() => setSubmitStatus('idle'), 3000);
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
     return (
-        <section id="contact" className="py-20 bg-hacker-gray">
-            <div className="max-w-7xl mx-auto px-4">
-                <div className="text-center mb-12">
-                    <AnimatedSection delay={0.1}>
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                            <span className="text-hacker-cyan"># </span>
-                            <span className="text-hacker-green-bright">CONTACT</span>
-                        </h2>
-                    </AnimatedSection>
-                    <AnimatedSection delay={0.2}>
-                        <p className="text-hacker-green/80 max-w-2xl mx-auto">
-                            Intéressé par mes services ? Contactez-moi pour discuter de votre projet.
-                        </p>
-                    </AnimatedSection>
-                </div>
+        <section id="contact" className="relative py-20 md:py-32 overflow-hidden px-4 sm:px-6 lg:px-16">
+            {/* Éléments décoratifs */}
+            <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute top-20 left-20 w-80 h-80 bg-blue-500/5 dark:bg-blue-500/10 rounded-full blur-3xl" />
+                <div className="absolute bottom-20 right-20 w-80 h-80 bg-purple-500/5 dark:bg-purple-500/10 rounded-full blur-3xl" />
+            </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
-                    {/* Contact Info */}
-                    <AnimatedSection delay={0.3} direction="left">
-                        <div className="space-y-6">
-                            <div className="flex items-center gap-4 p-4 border border-hacker-green/30 rounded-lg hover:border-hacker-cyan transition-colors group">
-                                <div className="h-12 w-12 rounded-lg bg-hacker-green/10 border border-hacker-green/30 flex items-center justify-center group-hover:border-hacker-cyan group-hover:bg-hacker-cyan/10 transition-colors">
-                                    <Mail className="text-hacker-green group-hover:text-hacker-cyan" size={24} />
-                                </div>
-                                <div>
-                                    <p className="text-sm text-hacker-green/60">Email</p>
-                                    <a href={`mailto:${personalInfo.email}`} className="hover:text-hacker-cyan transition-colors">
-                                        {personalInfo.email}
-                                    </a>
-                                </div>
-                            </div>
+            <div className="container mx-auto max-w-6xl">
+                {/* Titre de section */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="text-center mb-12 md:mb-16"
+                >
+                    <div className="inline-flex items-center gap-2 neumorph-sm px-5 py-2.5 rounded-full mb-6">
+                        <span className="text-xl">✉️</span>
+                        <span className="text-xs font-mono text-gray-600 dark:text-gray-400">
+                            Contactez-moi
+                        </span>
+                    </div>
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+                        <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                            Contact
+                        </span>
+                        <span className="text-gray-800 dark:text-gray-200"> & Collaboration</span>
+                    </h2>
+                    <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full mb-6" />
+                    <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                        {contactMessages.subtitle}
+                    </p>
+                </motion.div>
 
-                            <div className="flex items-center gap-4 p-4 border border-hacker-green/30 rounded-lg hover:border-hacker-cyan transition-colors group">
-                                <div className="h-12 w-12 rounded-lg bg-hacker-green/10 border border-hacker-green/30 flex items-center justify-center group-hover:border-hacker-cyan group-hover:bg-hacker-cyan/10 transition-colors">
-                                    <Phone className="text-hacker-green group-hover:text-hacker-cyan" size={24} />
-                                </div>
-                                <div>
-                                    <p className="text-sm text-hacker-green/60">Téléphone</p>
-                                    <a href={`tel:${personalInfo.phone}`} className="hover:text-hacker-cyan transition-colors">
-                                        {personalInfo.phone}
-                                    </a>
-                                </div>
-                            </div>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+                    {/* Formulaire de contact */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="neumorph-sm p-6 md:p-8 rounded-2xl"
+                    >
+                        <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-6 flex items-center gap-2">
+                            <Send size={20} className="text-blue-500" />
+                            {contactMessages.formTitle}
+                        </h3>
 
-                            <div className="flex items-center gap-4 p-4 border border-hacker-green/30 rounded-lg hover:border-hacker-cyan transition-colors group">
-                                <div className="h-12 w-12 rounded-lg bg-hacker-green/10 border border-hacker-green/30 flex items-center justify-center group-hover:border-hacker-cyan group-hover:bg-hacker-cyan/10 transition-colors">
-                                    <MapPin className="text-hacker-green group-hover:text-hacker-cyan" size={24} />
-                                </div>
-                                <div>
-                                    <p className="text-sm text-hacker-green/60">Adresse</p>
-                                    <p className="hover:text-hacker-cyan transition-colors">{personalInfo.address}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </AnimatedSection>
-
-                    {/* Contact Form */}
-                    <AnimatedSection delay={0.4} direction="right">
-                        <form onSubmit={handleSubmit} className="bg-hacker-dark/50 border border-hacker-green/30 rounded-lg p-6 hover:border-hacker-cyan transition-colors">
-                            <div className="mb-4">
-                                <label htmlFor="name" className="block text-sm font-bold mb-2 text-hacker-green">
-                                    &gt; Nom
+                        <form onSubmit={handleSubmit} className="space-y-5">
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                    {contactForm.name.label}
                                 </label>
                                 <input
-                                    type="text"
-                                    id="name"
+                                    type={contactForm.name.type}
+                                    name="name"
                                     value={formData.name}
                                     onChange={handleChange}
-                                    className="w-full bg-hacker-gray border border-hacker-green/30 rounded p-3 text-hacker-green focus:outline-none focus:border-hacker-cyan transition-colors"
-                                    placeholder="Votre nom"
-                                    required
+                                    required={contactForm.name.required}
+                                    placeholder={contactForm.name.placeholder}
+                                    className="w-full px-4 py-3 rounded-xl bg-transparent border border-gray-200 dark:border-gray-700 focus:border-blue-500 focus:outline-none transition-colors text-gray-800 dark:text-gray-200"
                                 />
                             </div>
 
-                            <div className="mb-4">
-                                <label htmlFor="email" className="block text-sm font-bold mb-2 text-hacker-green">
-                                    &gt; Email
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                    {contactForm.email.label}
                                 </label>
                                 <input
-                                    type="email"
-                                    id="email"
+                                    type={contactForm.email.type}
+                                    name="email"
                                     value={formData.email}
                                     onChange={handleChange}
-                                    className="w-full bg-hacker-gray border border-hacker-green/30 rounded p-3 text-hacker-green focus:outline-none focus:border-hacker-cyan transition-colors"
-                                    placeholder="votre@email.com"
-                                    required
+                                    required={contactForm.email.required}
+                                    placeholder={contactForm.email.placeholder}
+                                    className="w-full px-4 py-3 rounded-xl bg-transparent border border-gray-200 dark:border-gray-700 focus:border-blue-500 focus:outline-none transition-colors text-gray-800 dark:text-gray-200"
                                 />
                             </div>
 
-                            <div className="mb-6">
-                                <label htmlFor="message" className="block text-sm font-bold mb-2 text-hacker-green">
-                                    &gt; Message
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                    {contactForm.subject.label}
+                                </label>
+                                <input
+                                    type={contactForm.subject.type}
+                                    name="subject"
+                                    value={formData.subject}
+                                    onChange={handleChange}
+                                    required={contactForm.subject.required}
+                                    placeholder={contactForm.subject.placeholder}
+                                    className="w-full px-4 py-3 rounded-xl bg-transparent border border-gray-200 dark:border-gray-700 focus:border-blue-500 focus:outline-none transition-colors text-gray-800 dark:text-gray-200"
+                                />
+                            </div>
+
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                    {contactForm.message.label}
                                 </label>
                                 <textarea
-                                    id="message"
+                                    name="message"
                                     value={formData.message}
                                     onChange={handleChange}
-                                    rows={5}
-                                    className="w-full bg-hacker-gray border border-hacker-green/30 rounded p-3 text-hacker-green focus:outline-none focus:border-hacker-cyan transition-colors"
-                                    placeholder="Décrivez votre projet ou vos besoins"
-                                    required
+                                    required={contactForm.message.required}
+                                    placeholder={contactForm.message.placeholder}
+                                    rows={contactForm.message.rows}
+                                    className="w-full px-4 py-3 rounded-xl bg-transparent border border-gray-200 dark:border-gray-700 focus:border-blue-500 focus:outline-none transition-colors text-gray-800 dark:text-gray-200 resize-none"
                                 />
                             </div>
 
-                            <div className="text-center">
-                                <button
-                                    type="submit"
-                                    disabled={!formData.name || !formData.email || !formData.message}
-                                    className="py-3 px-6 bg-hacker-green text-hacker-dark font-bold rounded hover:bg-hacker-cyan transition-colors duration-300 uppercase tracking-widest text-sm inline-flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
-                                >
-                                    <Send size={16} />
-                                    $ Envoyer
-                                </button>
-                            </div>
+                            <button
+                                type="submit"
+                                disabled={isSubmitting}
+                                className={cn(
+                                    "w-full py-3 rounded-xl font-medium transition-all duration-300 flex items-center justify-center gap-2",
+                                    "neumorph-sm hover:shadow-neumorph-hover",
+                                    "text-gray-700 dark:text-gray-300",
+                                    isSubmitting && "opacity-70 cursor-not-allowed"
+                                )}
+                            >
+                                {isSubmitting ? (
+                                    <>
+                                        <div className="w-5 h-5 border-2 border-gray-400 border-t-transparent rounded-full animate-spin" />
+                                        {contactMessages.buttonSending}
+                                    </>
+                                ) : (
+                                    <>
+                                        <Send size={18} />
+                                        {contactMessages.buttonText}
+                                    </>
+                                )}
+                            </button>
+
+                            {/* Message de statut */}
+                            {submitStatus === 'success' && (
+                                <div className="flex items-center gap-2 p-3 rounded-lg bg-green-500/10 text-green-500">
+                                    <CheckCircle size={18} />
+                                    <span className="text-sm">{contactMessages.successMessage}</span>
+                                </div>
+                            )}
+                            {submitStatus === 'error' && (
+                                <div className="flex items-center gap-2 p-3 rounded-lg bg-red-500/10 text-red-500">
+                                    <AlertCircle size={18} />
+                                    <span className="text-sm">{contactMessages.errorMessage}</span>
+                                </div>
+                            )}
                         </form>
-                    </AnimatedSection>
+                    </motion.div>
+
+                    {/* Informations de contact */}
+                    <motion.div
+                        initial={{ opacity: 0, x: 30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="space-y-6"
+                    >
+                        <div className="neumorph-sm p-6 md:p-8 rounded-2xl">
+                            <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-6 flex items-center gap-2">
+                                <MessageCircle size={20} className="text-purple-500" />
+                                {contactMessages.infoTitle}
+                            </h3>
+
+                            <div className="space-y-5">
+                                {contactInfo.map((info) => (
+                                    <a
+                                        key={info.label}
+                                        href={info.href}
+                                        target={info.label === 'Adresse' ? '_blank' : undefined}
+                                        rel={info.label === 'Adresse' ? 'noopener noreferrer' : undefined}
+                                        className="flex items-start gap-4 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors group"
+                                    >
+                                        <div className={cn("p-2 rounded-lg", info.color, "bg-gray-100 dark:bg-gray-800")}>
+                                            <info.icon size={20} />
+                                        </div>
+                                        <div>
+                                            <p className="text-xs text-gray-500 dark:text-gray-400">{info.label}</p>
+                                            <p className="text-sm font-medium text-gray-800 dark:text-gray-200 group-hover:text-blue-500 transition-colors">
+                                                {info.value}
+                                            </p>
+                                        </div>
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Réseaux sociaux */}
+                        <div className="neumorph-sm p-6 md:p-8 rounded-2xl">
+                            <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-6">
+                                Retrouvez-moi sur
+                            </h3>
+                            <div className="flex justify-center gap-4">
+                                {socialLinks.map((social) => (
+                                    <a
+                                        key={social.name}
+                                        href={social.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={cn(
+                                            "neumorph-sm p-3 rounded-xl transition-all duration-300 hover:shadow-neumorph-hover",
+                                            social.color
+                                        )}
+                                    >
+                                        <social.icon size={24} />
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Disponibilité */}
+                        <div className="neumorph-sm p-6 md:p-8 rounded-2xl text-center">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 text-green-500 mb-4">
+                                <span className="relative flex h-2 w-2">
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
+                                </span>
+                                <span className="text-xs font-medium">Disponible</span>
+                            </div>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">
+                                Je suis actuellement disponible pour de nouvelles opportunités et collaborations.
+                                N'hésitez pas à me contacter !
+                            </p>
+                        </div>
+                    </motion.div>
                 </div>
             </div>
         </section>
