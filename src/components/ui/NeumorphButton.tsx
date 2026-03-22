@@ -24,42 +24,42 @@ interface NeumorphButtonProps {
 const variantStyles = {
   default: {
     base: 'neumorph-sm',
-    hover: 'hover:shadow-neumorph-hover',
+    hover: 'hover: ',
     active: 'active:shadow-neumorph-inset',
     text: 'text-gray-700',
-    glow: 'hover:shadow-neumorph-hover'
+    glow: 'hover: '
   },
   primary: {
     base: 'neumorph-sm',
-    hover: 'hover:shadow-neumorph-hover',
+    hover: 'hover: ',
     active: 'active:shadow-neumorph-inset',
     text: 'text-blue-600 font-semibold',
     glow: 'hover:shadow-[0_0_15px_rgba(59,130,246,0.3)]'
   },
   secondary: {
     base: 'neumorph-sm',
-    hover: 'hover:shadow-neumorph-hover',
+    hover: 'hover: ',
     active: 'active:shadow-neumorph-inset',
     text: 'text-purple-600 font-semibold',
     glow: 'hover:shadow-[0_0_15px_rgba(147,51,234,0.3)]'
   },
   danger: {
     base: 'neumorph-sm',
-    hover: 'hover:shadow-neumorph-hover',
+    hover: 'hover: ',
     active: 'active:shadow-neumorph-inset',
     text: 'text-red-600 font-semibold',
     glow: 'hover:shadow-[0_0_15px_rgba(220,38,38,0.3)]'
   },
   success: {
     base: 'neumorph-sm',
-    hover: 'hover:shadow-neumorph-hover',
+    hover: 'hover: ',
     active: 'active:shadow-neumorph-inset',
     text: 'text-green-600 font-semibold',
     glow: 'hover:shadow-[0_0_15px_rgba(34,197,94,0.3)]'
   },
   warning: {
     base: 'neumorph-sm',
-    hover: 'hover:shadow-neumorph-hover',
+    hover: 'hover: ',
     active: 'active:shadow-neumorph-inset',
     text: 'text-orange-600 font-semibold',
     glow: 'hover:shadow-[0_0_15px_rgba(249,115,22,0.3)]'
@@ -203,7 +203,7 @@ export const NeumorphButton: React.FC<NeumorphButtonProps> = ({
       ) : (
         <>
           {icon && (
-            <div className={cn('flex-shrink-0', (iconPosition === 'top' || iconPosition === 'bottom') && 'mb-1')}>
+            <div className={cn('shrink-0', (iconPosition === 'top' || iconPosition === 'bottom') && 'mb-1')}>
               {renderIcon()}
             </div>
           )}

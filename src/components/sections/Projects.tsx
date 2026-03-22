@@ -60,9 +60,6 @@ export const Projects: React.FC = () => {
                         <span className="text-gray-800 dark:text-gray-200"> récents</span>
                     </h2>
                     <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full mb-6" />
-                    <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                        Découvrez une sélection de mes projets les plus significatifs
-                    </p>
                 </motion.div>
 
                 {/* Filtres avec animation */}

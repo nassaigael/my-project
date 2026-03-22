@@ -64,7 +64,7 @@ export const Hero: React.FC<HeroProps> = ({ className }) => {
                 <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 dark:bg-purple-500/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
 
                 {/* Grille technique */}
-                <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(180deg,rgba(147,51,234,0.03)_1px,transparent_1px)] bg-[size:50px_50px]" />
+                <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(180deg,rgba(147,51,234,0.03)_1px,transparent_1px)] bg-size-[50px_50px]" />
 
                 {/* Points lumineux */}
                 <div className="absolute top-1/3 left-1/4 w-1 h-1 bg-blue-500 rounded-full animate-pulse" />
@@ -89,7 +89,7 @@ export const Hero: React.FC<HeroProps> = ({ className }) => {
                                 <span className="block text-gray-800 dark:text-gray-200">
                                     Gaël
                                 </span>
-                                <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                                <span className="block bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
                                     RAMAHANDRISOA
                                 </span>
                             </h1>
@@ -100,7 +100,7 @@ export const Hero: React.FC<HeroProps> = ({ className }) => {
                                     Développeur
                                 </span>
                                 <motion.span
-                                    className="text-xl sm:text-2xl lg:text-3xl font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+                                    className="text-xl sm:text-2xl lg:text-3xl font-semibold bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
                                     animate={{
                                         opacity: [0.5, 1, 0.5],
                                     }}
@@ -162,7 +162,7 @@ export const Hero: React.FC<HeroProps> = ({ className }) => {
                                     href={social.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="neumorph-sm p-3 rounded-xl transition-all duration-300 hover:shadow-neumorph-hover group"
+                                    className="neumorph-sm p-3 rounded-xl transition-all duration-300 group"
                                     whileHover={{ scale: 1.1, y: -2 }}
                                     whileTap={{ scale: 0.95 }}
                                     initial={{ opacity: 0, scale: 0 }}
@@ -197,7 +197,7 @@ export const Hero: React.FC<HeroProps> = ({ className }) => {
                                     transition={{ delay: 1 + index * 0.1, duration: 0.5 }}
                                     whileHover={{ scale: 1.05, y: -2 }}
                                 >
-                                    <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                                    <div className="text-2xl font-bold bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                                         {stat.value}
                                     </div>
                                     <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">
@@ -216,11 +216,11 @@ export const Hero: React.FC<HeroProps> = ({ className }) => {
                     >
                         <div className="relative">
                             {/* Effet de glow autour de l'image */}
-                            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur-2xl opacity-30 animate-pulse" />
+                            <div className="absolute inset-0 bg-linear-to-r from-blue-500 to-purple-500 rounded-full blur-2xl opacity-30 animate-pulse" />
 
                             {/* Conteneur de l'image avec effet neumorphism */}
                             <div className="relative neumorph-lg p-3 rounded-full bg-neumorph-bg dark:bg-gray-900">
-                                <div className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden bg-gradient-to-br from-blue-500/20 to-purple-500/20">
+                                <div className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden bg-linear-to-br from-blue-500/20 to-purple-500/20">
                                     <img
                                         src={profile}
                                         alt="Gaël RAMAHANDRISOA"
