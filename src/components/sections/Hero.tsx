@@ -53,7 +53,7 @@ export const Hero: React.FC<HeroProps> = ({ className }) => {
         <section
             id="home"
             className={cn(
-                'relative min-h-screen px-16 flex items-center justify-center overflow-hidden',
+                'relative min-h-screen sm:px-16 flex items-center justify-center overflow-hidden',
                 className
             )}
         >
@@ -212,7 +212,7 @@ export const Hero: React.FC<HeroProps> = ({ className }) => {
                     <motion.div
                         initial="hidden"
                         animate="visible"
-                        className="flex ml-24 justify-center items-center relative"
+                        className="flex  mt-12 sm:ml-24 justify-center items-center relative"
                     >
                         <div className="relative">
                             {/* Effet de glow autour de l'image */}

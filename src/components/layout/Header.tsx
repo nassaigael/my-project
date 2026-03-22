@@ -14,7 +14,6 @@ interface HeaderProps {
 const navLinks = [
     { name: 'Accueil', href: '#home' },
     { name: 'À propos', href: '#about' },
-    { name: 'Expériences', href: '#experience' },
     { name: 'Projets', href: '#projects' },
     { name: 'Compétences', href: '#skills' },
     { name: 'Contact', href: '#contact' },
@@ -66,7 +65,7 @@ export const Header: React.FC<HeaderProps> = ({ transparent = false }) => {
     };
 
     const headerClasses = cn(
-        'fixed px-16 top-0 left-0 right-0 z-50 transition-all duration-500',
+        'fixed sm:px-16 top-0 left-0 right-0 z-50 transition-all duration-500',
         isScrolled || !transparent
             ? 'py-3 neumorph-sm rounded-none'
             : 'py-5 bg-transparent'
