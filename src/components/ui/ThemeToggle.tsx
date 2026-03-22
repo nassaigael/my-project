@@ -29,7 +29,7 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({
             icon: isDark ? 'text-blue-400' : 'text-yellow-500'
         },
         glowing: {
-            track: isDark ? 'bg-gray-700 shadow-[0_0_15px_rgba(96,165,250,0.5)]' : 'bg-gray-200 shadow-[0_0_15px_rgba(234,179,8,0.5)]',
+            track: isDark ? 'bg-gray-700 ' : 'bg-gray-200 ',
             thumb: isDark ? 'neumorph-inset' : 'neumorph-sm',
             icon: isDark ? 'text-blue-400' : 'text-yellow-500'
         }
