@@ -179,33 +179,6 @@ export const Hero: React.FC<HeroProps> = ({ className }) => {
                                 </motion.a>
                             ))}
                         </motion.div>
-
-                        {/* Statistiques */}
-                        <motion.div
-                            className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-12 max-w-2xl mx-auto lg:mx-0">
-                            {[
-                                { value: '2+', label: "Années d'expérience" },
-                                { value: '15+', label: 'Projets réalisés' },
-                                { value: '10+', label: 'Technologies maîtrisées' },
-                                { value: '100%', label: 'Passion et dévouement' },
-                            ].map((stat, index) => (
-                                <motion.div
-                                    key={stat.label}
-                                    className="neumorph-sm p-3 text-center"
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 1 + index * 0.1, duration: 0.5 }}
-                                    whileHover={{ scale: 1.05, y: -2 }}
-                                >
-                                    <div className="text-2xl font-bold bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                                        {stat.value}
-                                    </div>
-                                    <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                                        {stat.label}
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </motion.div>
                     </motion.div>
 
                     {/* Image - colonne droite */}

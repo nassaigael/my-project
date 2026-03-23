@@ -3,9 +3,9 @@ import {
     FaFigma
 } from 'react-icons/fa';
 import { 
-    SiTypescript, SiTailwindcss, SiFramer, SiFastapi, SiPostgresql,
-    SiNextdotjs, SiDjango, SiMysql, SiRedis} from 'react-icons/si';
-import { TbApi, TbCloudStar } from 'react-icons/tb';
+    SiTypescript, SiTailwindcss, SiFramer, SiPostgresql,
+    SiNextdotjs,  SiJava, SiMysql} from 'react-icons/si';
+import { TbApi } from 'react-icons/tb';
 import { DiMongodb } from 'react-icons/di';
 
 export interface Skill {
@@ -30,21 +30,18 @@ export const skillsData: Skill[] = [
     // Backend
     { id: 8, name: 'Python', icon: <FaPython size={28} />, iconColor: 'text-green-500', bgIcon: '🐍', category: 'backend' },
     { id: 9, name: 'Node.js', icon: <FaNodeJs size={28} />, iconColor: 'text-green-600', bgIcon: '🚀', category: 'backend' },
-    { id: 10, name: 'FastAPI', icon: <SiFastapi size={28} />, iconColor: 'text-emerald-500', bgIcon: '⚡', category: 'backend' },
-    { id: 11, name: 'Django', icon: <SiDjango size={28} />, iconColor: 'text-green-700', bgIcon: '🎯', category: 'backend' },
+    { id: 10, name: 'Java', icon: <SiJava size={28} />, iconColor: 'text-emerald-500', bgIcon: '⚡', category: 'backend' },
     { id: 12, name: 'REST API', icon: <TbApi size={28} />, iconColor: 'text-blue-500', bgIcon: '🔌', category: 'backend' },
     
     // Database
     { id: 13, name: 'PostgreSQL', icon: <SiPostgresql size={28} />, iconColor: 'text-blue-600', bgIcon: '🐘', category: 'database' },
     { id: 14, name: 'MongoDB', icon: <DiMongodb size={28} />, iconColor: 'text-green-600', bgIcon: '🍃', category: 'database' },
     { id: 15, name: 'MySQL', icon: <SiMysql size={28} />, iconColor: 'text-blue-500', bgIcon: '🗄️', category: 'database' },
-    { id: 16, name: 'Redis', icon: <SiRedis size={28} />, iconColor: 'text-red-500', bgIcon: '⚡', category: 'database' },
     
     // Tools
     { id: 17, name: 'Git', icon: <FaGitAlt size={28} />, iconColor: 'text-orange-600', bgIcon: '🔀', category: 'tools' },
     { id: 18, name: 'Docker', icon: <FaDocker size={28} />, iconColor: 'text-sky-500', bgIcon: '🐳', category: 'tools' },
     { id: 19, name: 'Figma', icon: <FaFigma size={28} />, iconColor: 'text-pink-500', bgIcon: '🎨', category: 'tools' },
-    { id: 20, name: 'Web Scraping', icon: <TbCloudStar size={28} />, iconColor: 'text-purple-500', bgIcon: '🕷️', category: 'tools' },
 ];
 
 export const categoryConfig = {
