@@ -19,6 +19,25 @@ export const en = {
     'stat.technologies': 'Technologies mastered',
     'stat.passion': 'Passion & dedication',
     
+    // Projects
+    'projects.title': 'Projects',
+    'projects.recent': 'Recent',
+    'projects.filter_all': 'All',
+    'projects.filter_featured': 'Featured',
+    'projects.filter_completed': 'Completed',
+    'projects.filter_in_progress': 'In Progress',
+    'projects.filter_planned': 'Planned',
+    'projects.status_completed': 'Completed',
+    'projects.status_in_progress': 'In Progress',
+    'projects.status_planned': 'Planned',
+    'projects.demo': 'Demo',
+    'projects.code': 'Code',
+    'projects.soon': 'Coming soon',
+    'projects.technologies': 'technologies',
+    'projects.featured': 'Featured',
+    'projects.no_projects': 'No projects found in this category.',
+    'projects.view_more': 'View more on GitHub',
+    
     // Services
     'services.title': 'My Services',
     'services.subtitle': 'Tailored solutions for your projects',
