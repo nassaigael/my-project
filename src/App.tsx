@@ -11,9 +11,9 @@ function App() {
     <LanguageProvider>
       <Layout transparentHeader={true}>
         <Hero />
-        <Services />
-        <Skills />
         <Projects />
+        <Skills />
+        <Services />
         <Contact />
       </Layout>
     </LanguageProvider>
