@@ -54,7 +54,7 @@ export const Contact: React.FC = () => {
     ];
 
     return (
-        <section id="contact" className="relative py-20 md:py-32 overflow-hidden px-4 sm:px-6 lg:px-16">
+        <section id="contact" className="relative py-20 md:py-12 overflow-hidden px-4 sm:px-6 lg:px-16">
             {/* Éléments décoratifs premium */}
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-20 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-blue-500/5 dark:bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
@@ -98,7 +98,7 @@ export const Contact: React.FC = () => {
                     transition={{ duration: 0.6, delay: 0.2 }}
                     className="max-w-5xl mx-auto"
                 >
-                    <div className="neumorph-sm p-8 md:p-10 rounded-2xl">
+                    <div className="neumorph-sm p-6 md:p-6 rounded-2xl">
                         {/* En-tête du formulaire */}
                         <div className="text-center mb-8">
                             <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-linear-to-r from-blue-500/20 to-purple-500/20 mb-4">
