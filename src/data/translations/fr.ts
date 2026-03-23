@@ -19,6 +19,16 @@ export const fr = {
     'stat.technologies': 'Technologies maîtrisées',
     'stat.passion': 'Passion et dévouement',
     
+    // Skills
+    'skills.title': 'Compétences',
+    'skills.technical': 'techniques',
+    'skills.all': 'Toutes',
+    'skills.category_frontend': 'Frontend',
+    'skills.category_backend': 'Backend',
+    'skills.category_database': 'Base de données',
+    'skills.category_tools': 'Outils',
+    'skills.category_ai': 'IA & Data',
+    
     // Projects
     'projects.title': 'Projets',
     'projects.recent': 'récents',
