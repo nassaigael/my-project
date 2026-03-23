@@ -1,10 +1,10 @@
 import { 
     FaReact, FaPython, FaNodeJs, FaGitAlt, FaDocker, FaHtml5, FaCss3Alt,
-    FaFigma
+    FaFigma, FaJava
 } from 'react-icons/fa';
 import { 
     SiTypescript, SiTailwindcss, SiFramer, SiPostgresql,
-    SiNextdotjs,  SiJava, SiMysql} from 'react-icons/si';
+    SiNextdotjs, SiMysql} from 'react-icons/si';
 import { TbApi } from 'react-icons/tb';
 import { DiMongodb } from 'react-icons/di';
 
@@ -30,7 +30,7 @@ export const skillsData: Skill[] = [
     // Backend
     { id: 8, name: 'Python', icon: <FaPython size={28} />, iconColor: 'text-green-500', bgIcon: '🐍', category: 'backend' },
     { id: 9, name: 'Node.js', icon: <FaNodeJs size={28} />, iconColor: 'text-green-600', bgIcon: '🚀', category: 'backend' },
-    { id: 10, name: 'Java', icon: <SiJava size={28} />, iconColor: 'text-emerald-500', bgIcon: '⚡', category: 'backend' },
+    { id: 10, name: 'Java', icon: <FaJava size={28} />, iconColor: 'text-emerald-500', bgIcon: '⚡', category: 'backend' },
     { id: 12, name: 'REST API', icon: <TbApi size={28} />, iconColor: 'text-blue-500', bgIcon: '🔌', category: 'backend' },
     
     // Database

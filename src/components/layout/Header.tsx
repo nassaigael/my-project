@@ -13,7 +13,6 @@ interface HeaderProps {
 
 const navLinks = [
     { name: 'Accueil', href: '#home' },
-    { name: 'À propos', href: '#about' },
     { name: 'Projets', href: '#projects' },
     { name: 'Compétences', href: '#skills' },
     { name: 'Contact', href: '#contact' },
@@ -71,6 +70,7 @@ export const Header: React.FC<HeaderProps> = ({ transparent = false }) => {
             : 'py-5 bg-transparent'
     );
 
+    const newLocal = "absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700";
     return (
         <>
             <header className={headerClasses}>
@@ -88,8 +88,8 @@ export const Header: React.FC<HeaderProps> = ({ transparent = false }) => {
                             whileTap={{ scale: 0.98 }}
                         >
                             <div className="neumorph-sm px-4 py-2 transition-all duration-300  relative overflow-hidden">
-                                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-                                <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent relative z-10">
+                                <span className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+                                <span className="text-xl font-bold bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent relative z-10">
                                     GR
                                 </span>
                             </div>
@@ -120,7 +120,7 @@ export const Header: React.FC<HeaderProps> = ({ transparent = false }) => {
                                 className="lg:hidden neumorph-sm p-2 rounded-xl transition-all duration-300 relative overflow-hidden group"
                                 aria-label="Menu"
                             >
-                                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+                                <span className={newLocal} />
                                 {isMobileMenuOpen ? (
                                     <X size={20} className="relative z-10" />
                                 ) : (

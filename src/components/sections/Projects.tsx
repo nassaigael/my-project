@@ -54,12 +54,12 @@ export const Projects: React.FC = () => {
                     className="text-center mb-12 md:mb-16"
                 >
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-                        <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                        <span className="bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                             Projets
                         </span>
                         <span className="text-gray-800 dark:text-gray-200"> récents</span>
                     </h2>
-                    <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full mb-6" />
+                    <div className="w-24 h-1 bg-linear-to-r from-blue-500 to-purple-500 mx-auto rounded-full mb-6" />
                 </motion.div>
 
                 {/* Filtres avec animation */}
@@ -124,7 +124,7 @@ export const Projects: React.FC = () => {
                                         isExpanded ? "scale-[1.02]" : ""
                                     )}>
                                         {/* Effet de glow au hover */}
-                                        <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500" />
+                                        <div className="absolute -inset-0.5 bg-linear-to-r from-blue-500 to-purple-500 rounded-2xl opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500" />
                                         
                                         {/* Image du projet améliorée */}
                                         <div className="relative h-56 overflow-hidden">
@@ -133,7 +133,7 @@ export const Projects: React.FC = () => {
                                                 alt={project.title}
                                                 className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-1"
                                             />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                            <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                                             
                                             {/* Badge de statut amélioré */}
                                             <div className={cn(
@@ -150,7 +150,7 @@ export const Projects: React.FC = () => {
 
                                             {/* Badge featured amélioré */}
                                             {project.featured && (
-                                                <div className="absolute top-4 left-4 px-3 py-1.5 rounded-xl bg-gradient-to-r from-yellow-500/20 to-orange-500/20 backdrop-blur-md border border-yellow-500/30 shadow-lg">
+                                                <div className="absolute top-4 left-4 px-3 py-1.5 rounded-xl bg-linear-to-r from-yellow-500/20 to-orange-500/20 backdrop-blur-md border border-yellow-500/30 shadow-lg">
                                                     <div className="flex items-center gap-1">
                                                         <Star size={12} className="text-yellow-500 fill-yellow-500" />
                                                         <span className="text-xs font-semibold text-yellow-500">En vedette</span>
@@ -183,7 +183,7 @@ export const Projects: React.FC = () => {
                                                         initial={{ opacity: 0, scale: 0.8 }}
                                                         animate={{ opacity: 1, scale: 1 }}
                                                         transition={{ delay: i * 0.05 }}
-                                                        className="text-xs px-3 py-1.5 rounded-full bg-gradient-to-r from-gray-100 to-gray-50 dark:from-gray-800 dark:to-gray-900 text-gray-700 dark:text-gray-300 font-medium shadow-sm"
+                                                        className="text-xs px-3 py-1.5 rounded-full bg-linear-to-r from-gray-100 to-gray-50 dark:from-gray-800 dark:to-gray-900 text-gray-700 dark:text-gray-300 font-medium shadow-sm"
                                                     >
                                                         {tech}
                                                     </motion.span>
