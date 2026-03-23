@@ -52,7 +52,7 @@ export const Skills: React.FC = () => {
                             'px-4 py-2 rounded-xl transition-all duration-300 text-sm font-medium flex items-center gap-1.5',
                             activeCategory === 'all'
                                 ? 'neumorph-inset text-blue-600 dark:text-blue-400'
-                                : 'neumorph-sm text-gray-600 dark:text-gray-400 hover:shadow-neumorph-hover'
+                                : 'neumorph-sm text-gray-600 dark:text-gray-400'
                         )}
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
@@ -69,7 +69,7 @@ export const Skills: React.FC = () => {
                                     'px-4 py-2 rounded-xl transition-all duration-300 text-sm font-medium flex items-center gap-1.5',
                                     activeCategory === cat
                                         ? 'neumorph-inset text-blue-600 dark:text-blue-400'
-                                        : 'neumorph-sm text-gray-600 dark:text-gray-400 hover:shadow-neumorph-hover'
+                                        : 'neumorph-sm text-gray-600 dark:text-gray-400'
                                 )}
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
