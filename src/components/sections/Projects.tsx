@@ -78,7 +78,7 @@ export const Projects: React.FC = () => {
                                 'px-5 py-2.5 rounded-xl transition-all duration-300 text-sm font-medium relative overflow-hidden',
                                 filter === f.value
                                     ? 'neumorph-inset text-blue-600 dark:text-blue-400'
-                                    : 'neumorph-sm text-gray-600 dark:text-gray-400 hover:shadow-neumorph-hover'
+                                    : 'neumorph-sm text-gray-600 dark:text-gray-400'
                             )}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
