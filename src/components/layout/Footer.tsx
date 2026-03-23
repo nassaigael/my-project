@@ -1,12 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-    Github, 
-    Linkedin, 
-    Heart, 
+import {
+    Github,
+    Linkedin,
+    Heart,
     ArrowUp,
     Facebook,
-    Twitter,
     Instagram,
     Send
 } from 'lucide-react';
@@ -18,17 +17,18 @@ interface FooterProps {
 
 const socialLinks = [
     { name: 'Facebook', icon: Facebook, url: '#', color: 'hover:text-blue-600' },
-    { name: 'Twitter', icon: Twitter, url: '#', color: 'hover:text-sky-500' },
     { name: 'LinkedIn', icon: Linkedin, url: 'https://linkedin.com/in/gael-ramahandrisoa', color: 'hover:text-blue-600' },
     { name: 'GitHub', icon: Github, url: 'https://github.com/gaelramahandrisoa', color: 'hover:text-gray-900 dark:hover:text-white' },
     { name: 'Instagram', icon: Instagram, url: '#', color: 'hover:text-pink-500' },
 ];
 
 const navigationLinks = [
-    { name: 'À propos', href: '#about' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Accueil', href: '#about' },
     { name: 'Projets', href: '#projects' },
     { name: 'Compétences', href: '#skills' },
+    { name: 'Services', href: '#services' },
+    { name: 'Contact', href: '#contact' },
+
 ];
 
 const servicesLinks = [
@@ -76,7 +76,7 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
                                     href={social.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="neumorph-sm p-2 rounded-xl transition-all duration-300 hover:shadow-neumorph-hover group"
+                                    className="neumorph-sm p-2 rounded-xl transition-all duration-300 group"
                                     whileHover={{ scale: 1.1, y: -2 }}
                                     whileTap={{ scale: 0.95 }}
                                     initial={{ opacity: 0, scale: 0 }}
@@ -84,8 +84,8 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
                                     viewport={{ once: true }}
                                     transition={{ delay: index * 0.05 }}
                                 >
-                                    <social.icon 
-                                        size={18} 
+                                    <social.icon
+                                        size={18}
                                         className={cn(
                                             "transition-colors duration-300",
                                             social.color
@@ -174,7 +174,7 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
                         <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed max-w-sm mx-auto sm:mx-0">
                             Abonnez-vous pour recevoir les dernières actualités et opportunités.
                         </p>
-                        <form 
+                        <form
                             onSubmit={(e) => {
                                 e.preventDefault();
                                 // Handle newsletter subscription
@@ -226,7 +226,7 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
             {/* Bouton retour en haut flottant */}
             <motion.button
                 onClick={scrollToTop}
-                className="fixed bottom-8 right-8 z-50 neumorph-sm p-3 rounded-xl hover:shadow-neumorph-hover transition-all duration-300 group"
+                className="fixed bottom-8 right-8 z-50 neumorph-sm p-3 rounded-xl transition-all duration-300 group"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, scale: 0 }}
