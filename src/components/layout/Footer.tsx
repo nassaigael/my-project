@@ -76,7 +76,7 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
                                     href={social.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="neumorph-sm p-2 rounded-xl transition-all duration-300 hover:shadow-neumorph-hover group"
+                                    className="neumorph-sm p-2 rounded-xl transition-all duration-300 group"
                                     whileHover={{ scale: 1.1, y: -2 }}
                                     whileTap={{ scale: 0.95 }}
                                     initial={{ opacity: 0, scale: 0 }}
