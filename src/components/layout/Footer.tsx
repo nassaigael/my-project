@@ -62,7 +62,7 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
                         className="space-y-4 text-center sm:text-left"
                     >
                         <div className="neumorph-sm inline-block px-4 py-2 mx-auto sm:mx-0">
-                            <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                            <span className="text-xl font-bold bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                                 GR
                             </span>
                         </div>
@@ -191,7 +191,7 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
                             </div>
                             <motion.button
                                 type="submit"
-                                className="absolute right-2 top-1/2 transform -translate-y-1/2 neumorph-sm p-2 rounded-lg hover:shadow-neumorph-hover transition-all duration-300"
+                                className="absolute right-2 top-1/2 transform -translate-y-1/2 neumorph-sm p-2 rounded-lg transition-all duration-300"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                             >
@@ -205,7 +205,7 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
             {/* Lower Footer */}
             <div className="mt-12 pt-8">
                 <div className="container mx-auto px-4 lg:px-6">
-                    <div className="neumorph-sm w-full h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent" />
+                    <div className="neumorph-sm w-full h-px bg-linear-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent" />
                     <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 pb-6">
                         <p className="text-sm text-gray-500 dark:text-gray-400 text-center md:text-left">
                             Copyright &copy; {currentYear} Gaël RAMAHANDRISOA. Tous droits réservés.
