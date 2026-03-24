@@ -2,7 +2,6 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import { cn } from '../../utils/cn';
-import { LanguageSelector } from '../ui/LanguageSelector';
 
 interface MobileMenuProps {
     isOpen: boolean;
@@ -83,14 +82,6 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
                                     </motion.a>
                                 ))}
                             </nav>
-
-                            {/* Language Selector in Mobile Menu */}
-                            <div className="p-5 border-t border-gray-700">
-                                <div className="flex items-center justify-between">
-                                    <span className="text-sm text-gray-400">Langue</span>
-                                    <LanguageSelector variant="minimal" />
-                                </div>
-                            </div>
                         </div>
                     </motion.div>
                 </>
