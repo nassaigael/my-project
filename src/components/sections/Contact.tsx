@@ -112,10 +112,12 @@ export const Contact: React.FC = () => {
                                     return (
                                         <div key={field.name} className="relative">
                                             <div className={cn(
-                                                "absolute left-4 top-1/2 transform -translate-y-1/2 transition-all duration-300",
-                                                isFocused || formData[field.name as keyof typeof formData] ? "text-blue-500 -translate-y-7 text-xs" : "text-gray-500"
+                                                "absolute left-4 transition-all duration-300 pointer-events-none top-1/2  -translate-y-1/2",
+                                                isFocused || hasValue 
+                                                    ? " text-blue-400 " 
+                                                    : "  text-gray-500"
                                             )}>
-                                                <Icon size={isFocused || hasValue ? 14 : 18} />
+                                                <Icon size={isFocused || hasValue ? 18 : 18} />
                                             </div>
                                             <input
                                                 type={field.type}
@@ -141,10 +143,12 @@ export const Contact: React.FC = () => {
 
                             <div className="relative">
                                 <div className={cn(
-                                    "absolute left-4 top-1/2 transform -translate-y-1/2 transition-all duration-300",
-                                    focusedField === 'subject' || formData.subject ? "text-blue-500 -translate-y-7 text-xs" : "text-gray-500"
+                                    "absolute left-4 transition-all duration-300 pointer-events-none top-1/2  -translate-y-1/2",
+                                    focusedField === 'subject' || formData.subject 
+                                        ? " text-xs text-blue-400" 
+                                        : " text-gray-500"
                                 )}>
-                                    <FolderOpen size={focusedField === 'subject' || formData.subject ? 14 : 18} />
+                                    <FolderOpen size={focusedField === 'subject' || formData.subject ? 18 : 18} />
                                 </div>
                                 <input
                                     type="text"
@@ -167,10 +171,12 @@ export const Contact: React.FC = () => {
 
                             <div className="relative">
                                 <div className={cn(
-                                    "absolute left-4 top-5 transition-all duration-300",
-                                    focusedField === 'message' || formData.message ? "text-blue-500 -translate-y-6 text-xs" : "text-gray-500"
+                                    "absolute left-4 transition-all duration-300 pointer-events-none top-5",
+                                    focusedField === 'message' || formData.message 
+                                        ? " text-xs text-blue-400" 
+                                        : " text-gray-500"
                                 )}>
-                                    <MessageSquare size={focusedField === 'message' || formData.message ? 14 : 18} />
+                                    <MessageSquare size={focusedField === 'message' || formData.message ? 18 : 18} />
                                 </div>
                                 <textarea
                                     name="message"
