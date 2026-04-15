@@ -70,7 +70,7 @@ export const en = {
     'services.web_dev': 'Web Development',
     'services.web_apps': 'Web Applications',
     'services.ai': 'Artificial Intelligence',
-    'services.web_scraping': 'Web Scraping',
+    'services.ai_integration': 'AI Integration',
     'services.database': 'Database',
     'services.consulting': 'Technical Consulting',
     'services.data_processing': 'Data Processing',
@@ -80,7 +80,7 @@ export const en = {
     'services.web_dev_desc': 'Creation of modern, responsive and high-performance websites using the latest technologies.',
     'services.web_apps_desc': 'Full-stack web application development with RESTful APIs and databases.',
     'services.ai_desc': 'Integration of AI and machine learning solutions to automate your processes.',
-    'services.web_scraping_desc': 'Extraction and collection of structured data from websites.',
+    'services.ai_integration_desc': 'Integration of artificial intelligence models into your applications. Deploy and monitor AI solutions in production.',
     'services.database_desc': 'Design and optimization of databases for your applications.',
     'services.consulting_desc': 'Consulting and support for your technical and architectural projects.',
     'services.data_processing_desc': 'Extraction, cleaning and analysis of data for your projects.',
@@ -107,12 +107,12 @@ export const en = {
     'services.feature_chatbots': 'Chatbots',
     'services.feature_vision': 'Computer Vision',
 
-    // Services - Features Web Scraping
-    'services.feature_beautifulsoup': 'BeautifulSoup',
-    'services.feature_selenium': 'Selenium',
-    'services.feature_scrapy': 'Scrapy',
-    'services.feature_api': 'Custom APIs',
-    'services.feature_cleaning': 'Data Cleaning',
+    // Services - Features AI Integration
+    'services.feature_ml_models': 'ML Models',
+    'services.feature_deployment': 'Deployment',
+    'services.feature_inference': 'Inference',
+    'services.feature_monitoring': 'Monitoring',
+    'services.feature_optimization_ai': 'Optimization',
 
     // Services - Features Database
     'services.feature_postgresql': 'PostgreSQL',

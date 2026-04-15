@@ -70,7 +70,7 @@ export const Services: React.FC = () => {
                     {services.map((service) => {
                         const isHovered = hoveredId === service.id;
                         const glowColor = getColorFromClass(service.iconColor);
-
+                        
                         return (
                             <motion.div
                                 key={service.id}
@@ -109,12 +109,13 @@ export const Services: React.FC = () => {
                                         {t(service.titleKey)}
                                     </h3>
 
-                                    <p className="text-gray-400 text-sm leading-relaxed mb-4 grow">
+                                    <p className="text-gray-400 text-sm leading-relaxed mb-4 flex-grow">
                                         {t(service.descriptionKey)}
                                     </p>
 
+                                    {/* Affichage de TOUTES les features (pas seulement 3) */}
                                     <div className="space-y-2 mb-6">
-                                        {service.featuresKeys.slice(0, 3).map((featureKey, i) => (
+                                        {service.featuresKeys.map((featureKey, i) => (
                                             <div key={i} className="flex items-center gap-2">
                                                 <CheckCircle2 size={14} className="text-green-500 shrink-0" />
                                                 <span className="text-xs text-gray-400">
@@ -122,11 +123,6 @@ export const Services: React.FC = () => {
                                                 </span>
                                             </div>
                                         ))}
-                                        {service.featuresKeys.length > 3 && (
-                                            <div className="text-xs text-gray-500 italic">
-                                                +{service.featuresKeys.length - 3} {t('services.more_features')}
-                                            </div>
-                                        )}
                                     </div>
 
                                     <motion.a
@@ -144,7 +140,7 @@ export const Services: React.FC = () => {
                                     </motion.a>
 
                                     {isHovered && (
-                                        <div
+                                        <div 
                                             className="absolute inset-0 rounded-2xl pointer-events-none transition-all duration-300"
                                             style={{
                                                 boxShadow: `0 0 20px ${glowColor}40`,
@@ -161,7 +157,3 @@ export const Services: React.FC = () => {
         </section>
     );
 };
-
-
-
-
