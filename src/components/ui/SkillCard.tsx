@@ -45,51 +45,65 @@ export const SkillCard: React.FC<SkillCardProps> = ({ skill, index, hoveredId })
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.3, delay: index * 0.02 }}
-            className="relative group hover:scale-110 transition-all "
+            className="relative group"
         >
+            {/* Icône de fond décorative */}
             <div 
                 className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none text-6xl font-bold select-none"
             >
                 {skill.bgIcon}
             </div>
 
-            {/* Carte capsule */}
-            <div className={cn(
-                "relative neumorph-sm rounded-2xl p-4 text-center transition-all duration-300 overflow-hidden",
-                "bg-neumorph-bg",
-                isHovered && "shadow-neumorph-hover scale-[1.02]"
-            )}>
-                {/* Icône colorée */}
-                <div className={cn(
-                    "flex justify-center mb-2 transition-all duration-300",
-                    isHovered && "scale-110"
-                )}>
+            {/* Carte principale */}
+            <motion.div 
+                className={cn(
+                    "relative neumorph-sm rounded-2xl p-4 text-center transition-all duration-300 overflow-hidden",
+                    "bg-neumorph-bg cursor-pointer",
+                    isHovered && "shadow-neumorph-hover"
+                )}
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
+                {/* Icône colorée avec animation */}
+                <motion.div 
+                    className={cn(
+                        "flex justify-center mb-2 transition-all duration-300",
+                        isHovered && "scale-110"
+                    )}
+                    animate={isHovered ? { y: -2 } : { y: 0 }}
+                >
                     <div className={cn(
                         "p-2 rounded-xl transition-all duration-300",
-                        isHovered ? "bg-gray-200/50" : ""
+                        isHovered ? "bg-white/10" : ""
                     )}>
                         <div className={cn(skill.iconColor, "transition-colors")}>
                             {skill.icon}
                         </div>
                     </div>
-                </div>
+                </motion.div>
                 
                 {/* Nom de la technologie */}
-                <h3 className="text-sm font-semibold text-white">
+                <motion.h3 
+                    className="text-sm font-semibold text-gray-200 transition-colors duration-300"
+                    animate={isHovered ? { color: colorHex } : { color: '#e5e7eb' }}
+                >
                     {skill.name}
-                </h3>
+                </motion.h3>
                 
                 {/* Effet de bordure lumineuse au hover */}
                 {isHovered && (
-                    <div 
-                        className="absolute inset-0 rounded-2xl pointer-events-none transition-all duration-300"
+                    <motion.div 
+                        className="absolute inset-0 rounded-2xl pointer-events-none"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
                         style={{
-                            boxShadow: `0 0 15px ${glowColor}`,
+                            boxShadow: `0 0 20px ${glowColor}`,
                             border: `1px solid ${borderColor}`
                         }}
                     />
                 )}
-            </div>
+            </motion.div>
         </motion.div>
     );
 };

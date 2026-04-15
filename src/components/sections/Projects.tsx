@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-    Github, 
-    ExternalLink, 
-    Code2, 
+import {
+    Github,
+    ExternalLink,
+    Code2,
     Calendar,
     Star,
     Play,
@@ -15,11 +15,21 @@ import { cn } from '../../utils/cn';
 import { projects, statusConfig, filters } from '../../data/projects';
 import { useLanguage } from '../../contexts/LanguageContext';
 
-// Map des icônes pour les statuts
 const statusIcons = {
     Play: Play,
     Clock: Clock,
     Star: Star
+};
+
+const projectDescriptionKeys: Record<number, string> = {
+    1: 'projects.ecrivia_desc',
+    2: 'projects.fizanakara_cotisation_desc',
+    3: 'projects.planifieo_desc',
+    4: 'projects.eloria_desc',
+    5: 'projects.fizanakara_desc',
+    6: 'projects.portfolio_desc',
+    7: 'projects.datascraper_desc',
+    8: 'projects.aidataset_desc',
 };
 
 export const Projects: React.FC = () => {
@@ -46,6 +56,17 @@ export const Projects: React.FC = () => {
         completed: t('projects.status_completed'),
         'in-progress': t('projects.status_in_progress'),
         planned: t('projects.status_planned'),
+    };
+
+    const getProjectDescription = (projectId: number, defaultDescription: string): string => {
+        const descriptionKey = projectDescriptionKeys[projectId];
+        if (descriptionKey) {
+            const translated = t(descriptionKey);
+            if (translated !== descriptionKey) {
+                return translated;
+            }
+        }
+        return defaultDescription;
     };
 
     return (
@@ -116,7 +137,8 @@ export const Projects: React.FC = () => {
                             const status = statusConfig[project.status];
                             const StatusIcon = statusIcons[status.icon as keyof typeof statusIcons];
                             const isExpanded = expandedId === project.id;
-                            
+                            const translatedDescription = getProjectDescription(project.id, project.description);
+
                             return (
                                 <motion.div
                                     key={project.id}
@@ -135,7 +157,7 @@ export const Projects: React.FC = () => {
                                         isExpanded ? "scale-[1.02]" : ""
                                     )}>
                                         <div className="absolute -inset-0.5 bg-linear-to-r from-blue-500 to-purple-500 rounded-2xl opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500" />
-                                        
+
                                         <div className="relative h-56 overflow-hidden">
                                             <img
                                                 src={project.image}
@@ -143,7 +165,7 @@ export const Projects: React.FC = () => {
                                                 className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-1"
                                             />
                                             <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                            
+
                                             <div className={cn(
                                                 "absolute top-4 right-4 px-3 py-1.5 rounded-xl flex items-center gap-2 backdrop-blur-md",
                                                 status.bg,
@@ -173,12 +195,12 @@ export const Projects: React.FC = () => {
                                                 </h3>
                                                 <Layers size={16} className="text-gray-500 group-hover:text-blue-500 transition-colors" />
                                             </div>
-                                            
+
                                             <p className={cn(
                                                 "text-sm text-gray-400 leading-relaxed transition-all duration-300",
                                                 isExpanded ? "line-clamp-none" : "line-clamp-3"
                                             )}>
-                                                {project.description}
+                                                {translatedDescription}
                                             </p>
 
                                             <div className="flex flex-wrap gap-2 pt-2">
@@ -223,7 +245,7 @@ export const Projects: React.FC = () => {
                                                         <ArrowRight size={12} className="opacity-0 group-hover/btn:opacity-100 group-hover/btn:translate-x-1 transition-all" />
                                                     </motion.a>
                                                 )}
-                                                {project.githubUrl && (
+                                                {project.githubUrl && project.githubUrl !== '' && (
                                                     <motion.a
                                                         href={project.githubUrl}
                                                         target="_blank"
@@ -236,7 +258,7 @@ export const Projects: React.FC = () => {
                                                         <span>{t('projects.code')}</span>
                                                     </motion.a>
                                                 )}
-                                                {(!project.demoUrl || project.demoUrl === '#') && !project.githubUrl && (
+                                                {(!project.demoUrl || project.demoUrl === '#') && (!project.githubUrl || project.githubUrl === '') && (
                                                     <div className="flex-1 text-center text-xs text-gray-500 italic py-2">
                                                         {t('projects.soon')}
                                                     </div>
