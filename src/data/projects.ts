@@ -1,3 +1,10 @@
+import ecrivia from "../assets/projects/ecrivia.png"
+import fizanakara_cotisation from "../assets/projects/fizanakara_cotisation.png";
+import plainfieo from "../assets/projects/planifieo.png";
+import project4 from "../assets/projects/portfolio.png";
+import eloria from "../assets/projects/eloria.png";
+import fizanakara from "../assets/projects/fizanakara.png";
+
 export interface Project {
     id: number;
     title: string;
@@ -11,21 +18,13 @@ export interface Project {
     featured?: boolean;
 }
 
-import project1 from "../assets/projects/1.jpeg";
-import project2 from "../assets/projects/2.jpeg";
-import project3 from "../assets/projects/3.jpeg";
-import project4 from "../assets/projects/4.png";
-import project5 from "../assets/projects/5.jpeg";
-import project6 from "../assets/projects/6.jpeg";
-
-
 export const projects: Project[] = [
     {
         id: 1,
         title: 'ÉCRIVIA',
         description: 'Application de génération automatique d\'e-mails multilingues avec IA pour la rédaction de contenus professionnels.',
-        image: project1,
-        technologies: ['React', 'Python', 'NLP', 'TailwindCSS'],
+        image: ecrivia,
+        technologies: ['React', 'JavaScript', 'PuterJS', 'TailwindCSS'],
         status: 'completed',
         demoUrl: 'https://ecrivia.onrender.com/',
         githubUrl: 'https://github.com/gaelramahandrisoa/ecrivia',
@@ -36,8 +35,8 @@ export const projects: Project[] = [
         id: 2,
         title: 'Fizanakara Cotisation',
         description: 'Système de gestion automatisée des cotisations et paiements avec tableau de bord analytique.',
-        image: project2,
-        technologies: ['Python', 'FastAPI', 'PostgreSQL', 'Docker'],
+        image: fizanakara_cotisation,
+        technologies: ['Spring Boot', 'React', 'TypeScript', 'PostgreSQL'],
         status: 'completed',
         demoUrl: '#',
         githubUrl: 'https://github.com/gaelramahandrisoa/fizanakara',
@@ -48,8 +47,8 @@ export const projects: Project[] = [
         id: 3,
         title: 'Planifieo',
         description: 'Application de suivi financier avec catégorisation automatique des dépenses et alertes personnalisées.',
-        image: project3,
-        technologies: ['React', 'Node.js', 'MongoDB', 'Chart.js'],
+        image: plainfieo,
+        technologies: ['React', 'Node.js', 'PostgreSQL', 'Chart.js'],
         status: 'completed',
         demoUrl: '#',
         githubUrl: 'https://github.com/gaelramahandrisoa/planifieo',
@@ -57,30 +56,36 @@ export const projects: Project[] = [
     },
     {
         id: 4,
+        title: 'ELORIA',
+        description: 'Site e-commerce de vêtements élégants pour femmes et accessoires. Interface moderne avec panier d\'achat et filtres de produits.',
+        image: eloria,
+        technologies: ['React', 'TypeScript', 'TailwindCSS', 'Context API'],
+        status: 'in-progress',
+        demoUrl: 'https://eloria-timael.vercel.app',
+        githubUrl: '',
+        date: '2026',
+        featured: false
+    },
+    {
+        id: 5,
+        title: 'FIZANAKARA',
+        description: 'Site vitrine pour une association. Présentation des activités, événements et actions menées par l\'organisation. avec ChatBot pour répondre aux questions des visiteurs.',
+        image: fizanakara,
+        technologies: ['React', 'TypeScript', 'TailwindCSS', 'Framer Motion'],
+        status: 'completed',
+        demoUrl: 'https://fizanakara.vercel.app',
+        githubUrl: '',
+        date: '2026',
+        featured: false
+    },
+    {
+        id: 6,
         title: 'Portfolio Neumorphism',
         description: 'Portfolio personnel avec design neumorphism, dark mode et animations fluides.',
         image: project4,
         technologies: ['React', 'TypeScript', 'TailwindCSS', 'Framer Motion'],
         status: 'in-progress',
         githubUrl: 'https://github.com/gaelramahandrisoa/portfolio',
-        date: '2026'
-    },
-    {
-        id: 5,
-        title: 'Data Scraper Pro',
-        description: 'Outil de web scraping avancé pour l\'extraction et le nettoyage de données structurées.',
-        image: project5,
-        technologies: ['Python', 'BeautifulSoup', 'Selenium', 'Pandas'],
-        status: 'planned',
-        date: '2026'
-    },
-    {
-        id: 6,
-        title: 'AI Dataset Creator',
-        description: 'Plateforme de création et d\'annotation de datasets pour l\'entraînement de modèles IA.',
-        image: project6,
-        technologies: ['Python', 'FastAPI', 'React', 'TensorFlow'],
-        status: 'planned',
         date: '2026'
     }
 ];
