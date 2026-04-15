@@ -109,7 +109,7 @@ export const ChatBot: React.FC = () => {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 50, scale: 0.9 }}
                         transition={{ duration: 0.2 }}
-                        className="fixed bottom-24 right-8 z-50 w-96 h-[500px] neumorph-sm rounded-2xl overflow-hidden flex flex-col bg-neumorph-bg"
+                        className="fixed bottom-24 right-8 z-50 w-96 h-125 neumorph-sm rounded-2xl overflow-hidden flex flex-col bg-neumorph-bg"
                     >
                         {/* En-tête */}
                         <div className="p-4 bg-linear-to-r from-blue-600/20 to-purple-600/20 border-b border-gray-700">
