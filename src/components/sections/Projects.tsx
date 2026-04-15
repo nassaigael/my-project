@@ -58,6 +58,7 @@ export const Projects: React.FC = () => {
         planned: t('projects.status_planned'),
     };
 
+    // Fonction pour obtenir la description traduite
     const getProjectDescription = (projectId: number, defaultDescription: string): string => {
         const descriptionKey = projectDescriptionKeys[projectId];
         if (descriptionKey) {
@@ -67,6 +68,16 @@ export const Projects: React.FC = () => {
             }
         }
         return defaultDescription;
+    };
+
+    // Vérifier si le projet a un lien de démo valide
+    const hasValidDemo = (demoUrl?: string): boolean => {
+        return !!demoUrl && demoUrl !== '#';
+    };
+
+    // Vérifier si le projet a un lien GitHub valide
+    const hasValidGithub = (githubUrl?: string): boolean => {
+        return !!githubUrl && githubUrl !== '';
     };
 
     return (
@@ -138,6 +149,8 @@ export const Projects: React.FC = () => {
                             const StatusIcon = statusIcons[status.icon as keyof typeof statusIcons];
                             const isExpanded = expandedId === project.id;
                             const translatedDescription = getProjectDescription(project.id, project.description);
+                            const showDemo = hasValidDemo(project.demoUrl);
+                            const showGithub = hasValidGithub(project.githubUrl);
 
                             return (
                                 <motion.div
@@ -149,16 +162,17 @@ export const Projects: React.FC = () => {
                                     transition={{ duration: 0.5, delay: index * 0.05 }}
                                     onHoverStart={() => setHoveredId(project.id)}
                                     onHoverEnd={() => setHoveredId(null)}
-                                    className="group"
+                                    className="group h-full"
                                 >
                                     <div className={cn(
-                                        "relative overflow-hidden transition-all duration-500",
+                                        "relative overflow-hidden transition-all duration-500 flex flex-col h-full",
                                         "neumorph-sm",
                                         isExpanded ? "scale-[1.02]" : ""
                                     )}>
                                         <div className="absolute -inset-0.5 bg-linear-to-r from-blue-500 to-purple-500 rounded-2xl opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500" />
 
-                                        <div className="relative h-56 overflow-hidden">
+                                        {/* Section image - hauteur fixe */}
+                                        <div className="relative h-56 shrink-0 overflow-hidden">
                                             <img
                                                 src={project.image}
                                                 alt={project.title}
@@ -188,21 +202,22 @@ export const Projects: React.FC = () => {
                                             )}
                                         </div>
 
-                                        <div className="p-6 space-y-4">
+                                        <div className="p-6 space-y-4 flex flex-col grow">
                                             <div className="flex items-start justify-between">
                                                 <h3 className="text-xl font-bold text-gray-200 group-hover:text-blue-400 transition-colors">
                                                     {project.title}
                                                 </h3>
-                                                <Layers size={16} className="text-gray-500 group-hover:text-blue-500 transition-colors" />
+                                                <Layers size={16} className="text-gray-500 group-hover:text-blue-500 transition-colors flex-shrink-0" />
                                             </div>
 
                                             <p className={cn(
-                                                "text-sm text-gray-400 leading-relaxed transition-all duration-300",
+                                                "text-sm text-gray-400 leading-relaxed",
                                                 isExpanded ? "line-clamp-none" : "line-clamp-3"
                                             )}>
                                                 {translatedDescription}
                                             </p>
 
+                                            {/* Technologies */}
                                             <div className="flex flex-wrap gap-2 pt-2">
                                                 {project.technologies.map((tech, i) => (
                                                     <motion.span
@@ -217,6 +232,7 @@ export const Projects: React.FC = () => {
                                                 ))}
                                             </div>
 
+                                            {/* Date et nombre de technologies */}
                                             <div className="flex items-center justify-between pt-2 border-t border-gray-700">
                                                 {project.date && (
                                                     <div className="flex items-center gap-1.5 text-xs text-gray-500">
@@ -231,12 +247,16 @@ export const Projects: React.FC = () => {
                                             </div>
 
                                             <div className="flex gap-3 pt-2">
-                                                {project.demoUrl && project.demoUrl !== '#' && (
+                                                {showDemo && (
                                                     <motion.a
                                                         href={project.demoUrl}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
-                                                        className="flex-1 neumorph-sm px-4 py-2.5 rounded-xl text-sm font-medium text-blue-400 transition-all duration-300 flex items-center justify-center gap-2 group/btn"
+                                                        className={cn(
+                                                            "neumorph-sm px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 flex items-center justify-center gap-2 group/btn",
+                                                            showGithub ? "flex-1" : "w-full",
+                                                            "text-blue-400"
+                                                        )}
                                                         whileHover={{ scale: 1.02 }}
                                                         whileTap={{ scale: 0.98 }}
                                                     >
@@ -245,12 +265,16 @@ export const Projects: React.FC = () => {
                                                         <ArrowRight size={12} className="opacity-0 group-hover/btn:opacity-100 group-hover/btn:translate-x-1 transition-all" />
                                                     </motion.a>
                                                 )}
-                                                {project.githubUrl && project.githubUrl !== '' && (
+                                                {showGithub && (
                                                     <motion.a
                                                         href={project.githubUrl}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
-                                                        className="flex-1 neumorph-sm px-4 py-2.5 rounded-xl text-sm font-medium text-gray-300 transition-all duration-300 flex items-center justify-center gap-2"
+                                                        className={cn(
+                                                            "neumorph-sm px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 flex items-center justify-center gap-2",
+                                                            showDemo ? "flex-1" : "w-full",
+                                                            "text-gray-300"
+                                                        )}
                                                         whileHover={{ scale: 1.02 }}
                                                         whileTap={{ scale: 0.98 }}
                                                     >
@@ -258,14 +282,15 @@ export const Projects: React.FC = () => {
                                                         <span>{t('projects.code')}</span>
                                                     </motion.a>
                                                 )}
-                                                {(!project.demoUrl || project.demoUrl === '#') && (!project.githubUrl || project.githubUrl === '') && (
-                                                    <div className="flex-1 text-center text-xs text-gray-500 italic py-2">
+                                                {!showDemo && !showGithub && (
+                                                    <div className="w-full text-center text-xs text-gray-500 italic py-2">
                                                         {t('projects.soon')}
                                                     </div>
                                                 )}
                                             </div>
                                         </div>
 
+                                        {/* Anneau de hover */}
                                         <div className={cn(
                                             "absolute inset-0 rounded-2xl pointer-events-none transition-all duration-500",
                                             hoveredId === project.id ? "ring-2 ring-blue-500/50 ring-offset-2 ring-offset-neumorph-bg" : ""
