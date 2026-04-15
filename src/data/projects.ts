@@ -38,7 +38,7 @@ export const projects: Project[] = [
         image: fizanakara_cotisation,
         technologies: ['Spring Boot', 'React', 'TypeScript', 'PostgreSQL'],
         status: 'completed',
-        demoUrl: 'https://fizanakara-cotisation.onrender.com',
+        demoUrl: '',
         githubUrl: 'https://github.com/gaelramahandrisoa/fizanakara',
         date: '2025',
         featured: true
@@ -51,7 +51,7 @@ export const projects: Project[] = [
         technologies: ['React', 'Node.js', 'PostgreSQL', 'Chart.js'],
         status: 'completed',
         demoUrl: 'https://planifieo.onrender.com',
-        githubUrl: 'https://github.com/gaelramahandrisoa/planifieo',
+        githubUrl: 'https://github.com/nassaigael/Personal-Expense-Tracker.git',
         date: '2025'
     },
     {

@@ -179,7 +179,7 @@ export const Projects: React.FC = () => {
                                     onHoverEnd={() => setHoveredId(null)}
                                     className="group h-full"
                                 >
-                                    <div 
+                                    <div
                                         className={cn(
                                             "relative overflow-hidden transition-all duration-500 flex flex-col h-full",
                                             "neumorph-sm",
