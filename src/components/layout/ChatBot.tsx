@@ -1,7 +1,7 @@
 // components/ChatBot.tsx
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageCircle, X, Send, Bot, User } from 'lucide-react';
+import { MessageCircle, X, Send, User } from 'lucide-react';
 import { cn } from '../../utils/cn';
 
 interface Message {
@@ -109,13 +109,14 @@ export const ChatBot: React.FC = () => {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 50, scale: 0.9 }}
                         transition={{ duration: 0.2 }}
-                        className="fixed bottom-24 right-8 z-50 w-96 h-125 neumorph-sm rounded-2xl overflow-hidden flex flex-col bg-neumorph-bg"
+                        className="fixed bottom-24 right-8 z-50 w-[calc(100vw-2rem)] sm:w-96 h-125 sm:h-137.5 neumorph-sm rounded-2xl overflow-hidden flex flex-col bg-neumorph-bg"
                     >
-                        {/* En-tête */}
+                        {/* En-tête avec logo GR */}
                         <div className="p-4 bg-linear-to-r from-blue-600/20 to-purple-600/20 border-b border-gray-700">
                             <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 rounded-full bg-linear-to-r from-blue-500 to-purple-500 flex items-center justify-center">
-                                    <Bot size={20} className="text-white" />
+                                {/* Logo GR au lieu de l'icône Bot */}
+                                <div className="w-10 h-10 rounded-full bg-linear-to-r from-blue-500 to-purple-500 flex items-center justify-center shadow-lg">
+                                    <span className="text-white font-bold text-lg">GR</span>
                                 </div>
                                 <div>
                                     <h3 className="font-semibold text-gray-200">Assistant Gaël</h3>
@@ -141,7 +142,8 @@ export const ChatBot: React.FC = () => {
                                         {message.isUser ? (
                                             <User size={14} className="text-gray-300" />
                                         ) : (
-                                            <Bot size={14} className="text-white" />
+                                            // Logo GR pour les messages du bot
+                                            <span className="text-white font-bold text-xs">GR</span>
                                         )}
                                     </div>
                                     <div className={cn(
@@ -157,7 +159,7 @@ export const ChatBot: React.FC = () => {
                             {isTyping && (
                                 <div className="flex items-start gap-2">
                                     <div className="w-8 h-8 rounded-full bg-linear-to-r from-blue-500 to-purple-500 flex items-center justify-center">
-                                        <Bot size={14} className="text-white" />
+                                        <span className="text-white font-bold text-xs">GR</span>
                                     </div>
                                     <div className="neumorph-sm px-4 py-2 rounded-xl rounded-tl-sm">
                                         <div className="flex gap-1">
