@@ -32,7 +32,6 @@ const navigationLinks = [
 const servicesLinks = [
     { nameKey: 'services.web_dev', href: '#services' },
     { nameKey: 'services.data_processing', href: '#services' },
-    { nameKey: 'services.web_scraping', href: '#services' },
     { nameKey: 'services.ai_integration', href: '#services' },
 ];
 
@@ -215,9 +214,10 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
                 </div>
             </div>
 
+            {/* Bouton scroll to top - déplacé à gauche */}
             <motion.button
                 onClick={scrollToTop}
-                className="fixed bottom-8 right-8 z-50 neumorph-sm p-3 rounded-xl transition-all duration-300 group"
+                className="fixed bottom-8 left-8 z-50 neumorph-sm p-3 rounded-xl transition-all duration-300 group"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, scale: 0 }}

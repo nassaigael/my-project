@@ -5,6 +5,7 @@ import { Skills } from './components/sections/Skills';
 import { Projects } from './components/sections/Projects';
 import { Contact } from './components/sections/Contact';
 import { LanguageProvider } from './contexts/LanguageContext';
+import { ChatBot } from './components/layout/ChatBot';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Skills />
         <Services />
         <Contact />
+        <ChatBot />
       </Layout>
     </LanguageProvider>
   );
