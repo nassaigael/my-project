@@ -32,7 +32,6 @@ const navigationLinks = [
 const servicesLinks = [
     { nameKey: 'services.web_dev', href: '#services' },
     { nameKey: 'services.data_processing', href: '#services' },
-    { nameKey: 'services.web_scraping', href: '#services' },
     { nameKey: 'services.ai_integration', href: '#services' },
 ];
 
