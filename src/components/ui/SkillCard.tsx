@@ -47,14 +47,12 @@ export const SkillCard: React.FC<SkillCardProps> = ({ skill, index, hoveredId })
             transition={{ duration: 0.3, delay: index * 0.02 }}
             className="relative group"
         >
-            {/* Icône de fond décorative */}
             <div 
                 className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none text-6xl font-bold select-none"
             >
                 {skill.bgIcon}
             </div>
 
-            {/* Carte principale */}
             <motion.div 
                 className={cn(
                     "relative neumorph-sm rounded-2xl p-4 text-center transition-all duration-300 overflow-hidden",
@@ -64,7 +62,6 @@ export const SkillCard: React.FC<SkillCardProps> = ({ skill, index, hoveredId })
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-                {/* Icône colorée avec animation */}
                 <motion.div 
                     className={cn(
                         "flex justify-center mb-2 transition-all duration-300",
@@ -82,7 +79,6 @@ export const SkillCard: React.FC<SkillCardProps> = ({ skill, index, hoveredId })
                     </div>
                 </motion.div>
                 
-                {/* Nom de la technologie */}
                 <motion.h3 
                     className="text-sm font-semibold text-gray-200 transition-colors duration-300"
                     animate={isHovered ? { color: colorHex } : { color: '#e5e7eb' }}
@@ -90,7 +86,6 @@ export const SkillCard: React.FC<SkillCardProps> = ({ skill, index, hoveredId })
                     {skill.name}
                 </motion.h3>
                 
-                {/* Effet de bordure lumineuse au hover */}
                 {isHovered && (
                     <motion.div 
                         className="absolute inset-0 rounded-2xl pointer-events-none"

@@ -36,7 +36,6 @@ export const NavLink: React.FC<NavLinkProps> = ({
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
         >
-            {/* Soulignement premium */}
             <span className={cn(
                 "absolute bottom-1 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-linear-to-r from-blue-500 to-purple-500 rounded-full transition-all duration-300",
                 isActive ? "w-6" : "group-hover:w-6"

@@ -25,7 +25,6 @@ export const useScrollReveal = (options?: UseScrollRevealOptions) => {
         }, options.delay);
         return () => clearTimeout(timer);
       } else {
-        // eslint-disable-next-line react-hooks/set-state-in-effect
         setHasRevealed(true);
       }
     }

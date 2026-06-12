@@ -24,7 +24,6 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
 
     const currentLanguage = languages.find(lang => lang.code === language);
 
-    // Fermer le dropdown quand on clique en dehors
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -42,7 +41,6 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
 
     return (
         <div ref={dropdownRef} className={cn("relative", className)}>
-            {/* Bouton principal */}
             <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
@@ -55,7 +53,6 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
                 )}
                 aria-label="Changer de langue"
             >
-                {/* Icône qui change selon la langue sélectionnée */}
                 <motion.span
                     key={currentLanguage?.code}
                     initial={{ opacity: 0, scale: 0.5, rotate: -30 }}
@@ -75,7 +72,6 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
                 />
             </motion.button>
 
-            {/* Dropdown */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div

@@ -75,7 +75,6 @@ export const Header: React.FC<HeaderProps> = ({ transparent = false }) => {
             <header className={headerClasses}>
                 <div className="container mx-auto px-4 lg:px-16">
                     <div className="flex items-center justify-between">
-                        {/* Logo */}
                         <motion.a
                             href="#home"
                             onClick={(e) => handleLinkClick(e, '#home')}
@@ -93,7 +92,6 @@ export const Header: React.FC<HeaderProps> = ({ transparent = false }) => {
                             </div>
                         </motion.a>
 
-                        {/* Desktop Navigation */}
                         <nav className="hidden lg:flex items-center gap-2">
                             {navLinks.map((link, index) => (
                                 <NavLink
@@ -107,12 +105,9 @@ export const Header: React.FC<HeaderProps> = ({ transparent = false }) => {
                             ))}
                         </nav>
 
-                        {/* Language Selector & Mobile Menu Button */}
                         <div className="flex items-center gap-3">
-                            {/* Language Selector */}
                             <LanguageSelector variant="default" />
 
-                            {/* Mobile Menu Button */}
                             <motion.button
                                 whileTap={{ scale: 0.95 }}
                                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -126,7 +121,6 @@ export const Header: React.FC<HeaderProps> = ({ transparent = false }) => {
                 </div>
             </header>
 
-            {/* Mobile Menu */}
             <MobileMenu
                 isOpen={isMobileMenuOpen}
                 onClose={() => setIsMobileMenuOpen(false)}
